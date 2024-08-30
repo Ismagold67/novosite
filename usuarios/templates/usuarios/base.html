@@ -6,17 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Template base</title>
+        <title>{% block aba %}Template base{% endblock %}</title>
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #008000;">
             <div class="container px-5">
-                <a class="navbar-brand" href="#!">Diário de Notas</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Diário de Notas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Página Inicial</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Página Inicial</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contatos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
@@ -28,18 +28,19 @@
         <div class="container px-4 px-lg-5">
             <!-- Call to Action-->
             <div class="card text-white my-5 py-4 text-center" style="background-color: #008000;">
-                <div class="card-body"><p class="text-white m-0">Seja bem vindo(a) ao portal de notas, aqui você encontrará todos os dados das suas disciplinas.</p></div>
+                <div class="card-body"><p class="text-white m-0">{% block titulo %}Seja bem vindo(a) ao portal de notas, aqui você encontrará todos os dados das suas disciplinas. {% endblock %}</p></div>
             </div>
 
-
+<!-- content row -->
             <div class="row gx-4 gx-lg-5">
+                {% block conteudo %}
                 <div class="col-md-4 mb-5">
                     <div class="card h-100" style="background-color: #d3d3d3;">
                         <div class="card-body" style="background-color: #fff;">
                             <h2 class="card-title">Lançar Notas</h2>
                             <p class="card-text">Nesta opção você poderá lançar todas as notas referentes ás suas disciplinas, discriminando todos os respectivos detalhes.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Clique Aqui</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'lancar' %}">Clique Aqui</a></div>
                     </div>
                 </div>
 
@@ -49,7 +50,7 @@
                             <h2 class="card-title">Alterar Notas</h2>
                             <p class="card-text">Nesta opção você poderá alterar todas as notas já lançadas referentes ás suas disciplinas, inclusive excluir alguma nota.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Clique Aqui</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'alterar' %}">Clique Aqui</a></div>
                     </div>
                 </div>
 
@@ -59,11 +60,10 @@
                             <h2 class="card-title">Visualizar Notas</h2>
                             <p class="card-text">Nesta opção você poderá visualizar todas as notas já lançadas referentes às suas disciplinas.</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Clique Aqui</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'visualizar' %}">Clique Aqui</a></div>
                     </div>
                 </div>
-
-
+                {% endblock %}
             </div>
         </div>
         <!-- Footer-->

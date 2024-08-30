@@ -41,6 +41,11 @@ def cadastro(request):
 def home(request):
     return render(request, 'usuarios/home.html')
 
-def base(request):
-    if request.method == "GET":
-        return render(request, 'usuarios/base.html')
+def lancar(request):
+    return render(request, 'usuarios/lancar.html')
+
+def visualizar(request):
+    return render(request, 'usuarios/visualizar.html')
+
+def alterar(request):
+    return render(request, 'usuarios/alterar.html')
