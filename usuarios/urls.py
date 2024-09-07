@@ -9,5 +9,6 @@ urlpatterns = [
     path('visualizar/', views.visualizar, name='visualizar'),
     path('alterar/', views.alterar, name='alterar'),
     path('logout/', views.logout, name='logout'),
-    # path('base/', views.base, name='base'),
+    path('excluir_verificacao/<int:pk>', views.excluir_verificacao, name='excluir_verificacao'),
+    path('excluir/<int:pk>', views.excluir, name='excluir'),
 ]
